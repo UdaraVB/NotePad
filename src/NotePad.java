@@ -17,6 +17,7 @@ public class NotePad {
         JMenuItem exitItem = new JMenuItem("Exit");
         JMenu aboutMenu = new JMenu("About");
         JMenuItem help = new JMenuItem("Help");
+        JMenuItem colorButton = new JMenuItem("Change Text Color");
 
         fileMenu.add(newNoteItem);
         fileMenu.add(openItem);
@@ -24,6 +25,7 @@ public class NotePad {
         fileMenu.add(exitItem);
         menuBar.add(fileMenu);
         menuBar.add(aboutMenu);
+        menuBar.add(colorButton);
         aboutMenu.add(help);
         frame.setJMenuBar(menuBar);
 
@@ -34,6 +36,16 @@ public class NotePad {
                 textArea.setText("");
             }
         });
+
+        // Color button ----
+
+        colorButton.addActionListener(e -> {
+            Color color = JColorChooser.showDialog(frame, "Pick a Color", textArea.getForeground());
+            if (color != null) {
+                textArea.setForeground(color);
+            }
+        });
+
 
         // Open
         openItem.addActionListener(e -> {
