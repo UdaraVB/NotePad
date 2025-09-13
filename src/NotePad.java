@@ -37,7 +37,7 @@ public class NotePad {
             }
         });
 
-        // Color button ----
+        // Color button
 
         colorButton.addActionListener(e -> {
             Color color = JColorChooser.showDialog(frame, "Pick a Color", textArea.getForeground());
